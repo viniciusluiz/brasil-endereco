@@ -9,7 +9,7 @@ Brasil/Endereco é um componente de consulta que facilita a obtenção de endere
 
 Usando o Brasil/Endereco para consultar endereços:
 ```php
-$correios = new Correios();
+$correios = new Minime\Brasil\Endereco\Correios();
 $correios->buscaFaixa("Macapa", "AP");
 $correios->buscaLogradouros('Jovino Dinoa', 'AP', 'Macapa', 'Rua', 18);
 $correios->buscaEndereco('Jovino Dinoá');
@@ -19,15 +19,21 @@ $correios->buscaCep('68900075');
 
 Retornando em formato json:
 ```php
-$correios = new Correios();
+$correios = new Minime\Brasil\Endereco\Correios();
 $correios->toJson()->buscaFaixa("Macapa", "AP");
 ```
 
 ## Instalação
 
-```php
-use Minime\Brasil\Endereco\Correios as Correios;
+Adicione a seguinte dependência no `composer.json` do seu projeto:
+```json
+{
+  "require": {
+    "minime/brasil-endereco": "~0.0"
+  }
+}
 ```
+O terminal é seu amigo: `composer require minime/brasil-endereco:~0.0` :8ball:
 
 ## License
 
