@@ -1,0 +1,23 @@
+{
+    "name": "minime/brasil-endereco",
+    "type": "library",
+    "description": "Brasil/Endereco é um componente de consulta que facilita a obtenção de endereços a partir do site dos correios",
+    "keywords": ["php", "consulta", "busca", "endereco", "cep"],
+    "homepage": "https://github.com/viniciusluiz/brasil-endereco.git",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vinícius Luiz",
+            "email": "vinicius.luiz@yahoo.com.br",
+            "homepage": "https://github.com/viniciusluiz/"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "nategood/httpful": "~0.2",
+        "electrolinux/phpquery": "~0.9.6"
+    },
+    "autoload": {
+        "psr-0": { "Minime": "src" }
+    }
+}
