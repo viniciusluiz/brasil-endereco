@@ -46,3 +46,7 @@ use Minime\Brasil\Endereco\Correios as Correios;
 ## License
 
 Brasil/Endereco é liberado sob a [MIT License](http://www.opensource.org/licenses/MIT).
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/viniciusluiz/brasil-endereco/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
