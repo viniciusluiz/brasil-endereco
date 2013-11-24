@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/viniciusluiz/redmodel.png?branch=master)](https://travis-ci.org/viniciusluiz/redmodel)
 [![Coverage Status](https://coveralls.io/repos/viniciusluiz/brasil-endereco/badge.png)](https://coveralls.io/r/viniciusluiz/brasil-endereco)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/viniciusluiz/brasil-endereco/badges/quality-score.png?s=62ca98c55b872d59cb79e0e77cee3860c23da965)](https://scrutinizer-ci.com/g/viniciusluiz/brasil-endereco/)
 [![Latest Stable Version](https://poser.pugx.org/minime/brasil-endereco/v/stable.png)](https://packagist.org/packages/minime/brasil-endereco)
 [![Total Downloads](https://poser.pugx.org/minime/brasil-endereco/downloads.png)](https://packagist.org/packages/minime/brasil-endereco)
 
