@@ -2,13 +2,14 @@
 
 namespace Minime\Provedor;
 
-class HttpHelperTest extends \PHPUnit_Framework_TestCase {
-
+class HttpHelperTest extends \PHPUnit_Framework_TestCase
+{
     /**
      * @test
      */
-    public function parseTable() {
-        $this->assertCount(2, 
+    public function parseTable()
+    {
+        $this->assertCount(2,
             HttpHelper::parseTable(
                 '<table>
                    <tr>
@@ -35,7 +36,8 @@ class HttpHelperTest extends \PHPUnit_Framework_TestCase {
     /**
      * @test
      */
-    public function exchangeIndexNumericalByTextual() {
+    public function exchangeIndexNumericalByTextual()
+    {
         $this->assertCount(0, HttpHelper::exchangeIndexNumericalByTextual(['a','b','c','d','e'], ['a','b','c','d','e']));
         $this->assertCount(1, HttpHelper::exchangeIndexNumericalByTextual([0=>['a','b','c','d','e']], ['a','b','c','d','e']));
     }
