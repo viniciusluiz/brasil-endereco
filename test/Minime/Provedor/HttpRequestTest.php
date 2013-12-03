@@ -2,12 +2,13 @@
 
 namespace Minime\Provedor;
 
-class HttpRequestTest extends \PHPUnit_Framework_TestCase {
-
+class HttpRequestTest extends \PHPUnit_Framework_TestCase
+{
     /**
      * @test
      */
-    public function connectLib() {
+    public function connectLib()
+    {
         $url = "http://www.buscacep.correios.com.br/servicos/dnec/consultaLogradouroAction.do";
         $data = [
             'CEP'         => '68900075',
@@ -23,7 +24,8 @@ class HttpRequestTest extends \PHPUnit_Framework_TestCase {
      * @test
      * @expectedException InvalidArgumentException
      */
-    public function exception() {
+    public function exception()
+    {
         HttpRequest::urlOpen("", [])->body;
         HttpRequest::urlOpen("?", "[]")->body;
     }

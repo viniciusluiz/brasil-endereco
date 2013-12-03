@@ -5,22 +5,28 @@ namespace Minime\Brasil\Endereco;
 use Minime\Provedor\HttpRequest;
 use Minime\Provedor\HttpHelper;
 
-class Correios {
+class Correios
+{
     private $uri     = "http://www.buscacep.correios.com.br/servicos/dnec/";
     private $to_json = false;
 
-    public function toJson() {
+    public function toJson()
+    {
         $this->to_json = true;
+
         return $this;
     }
 
-    private function formatJson($value) {
+    private function formatJson($value)
+    {
         $response      = $this->to_json ? json_encode($value) : $value;
         $this->to_json = false;
+
         return $response;
     }
 
-    private function parseFaixa($table) {
+    private function parseFaixa($table)
+    {
         array_shift($table);
         $faixa_geral = explode('a', preg_replace('/\s/', '', array_shift($table)[0]));
 
@@ -29,15 +35,16 @@ class Correios {
         $values = array_shift($table);
 
         $response = [
-            'FaixaGeral' => $faixa_geral, 
-            $labels[0]   => $values[0], 
+            'FaixaGeral' => $faixa_geral,
+            $labels[0]   => $values[0],
             $labels[1]   => explode('a', preg_replace('/\s/', '', $values[1]))
         ];
 
         return $this->formatJson($response);
     }
 
-    private function formatTabela($url, $data) {
+    private function formatTabela($url, $data)
+    {
         $table = HttpHelper::parseTable(
             HttpRequest::urlOpen($url, $data)->body);
 
@@ -50,7 +57,8 @@ class Correios {
         return $this->formatJson($response);
     }
 
-    public function buscaFaixa($localidade, $uf) {
+    public function buscaFaixa($localidade, $uf)
+    {
         $url  = $this->uri . 'consultaFaixaCepAction.do';
         $data = [
             'UF'           => $uf,
@@ -61,12 +69,14 @@ class Correios {
             'StartRow'     => '1',
             'EndRow'       => '10'
         ];
+
         return $this->parseFaixa(
             HttpHelper::parseTable(
                 HttpRequest::urlOpen($url, $data)->body));
     }
 
-    public function buscaLogradouros($logradouro, $uf=null, $localidade=null, $tipo=null, $numero=null) {
+    public function buscaLogradouros($logradouro, $uf=null, $localidade=null, $tipo=null, $numero=null)
+    {
         $url = $this->uri . 'consultaLogradouroAction.do';
         $data = [
             'Logradouro'   => $logradouro,
@@ -80,10 +90,12 @@ class Correios {
             'StartRow'     => '1',
             'EndRow'       => '10'
         ];
+
         return $this->formatTabela($url, $data);
     }
 
-    public function buscaEndereco($endereco) {
+    public function buscaEndereco($endereco)
+    {
         $url = $this->uri . 'consultaEnderecoAction.do';
 
         // $tipoCep = [
@@ -104,10 +116,12 @@ class Correios {
             'StartRow'    => '1',
             'EndRow'      => '10'
         ];
+
         return $this->formatTabela($url, $data);
     }
 
-    public function buscaCep($cep) {
+    public function buscaCep($cep)
+    {
         $url = $this->uri . 'consultaLogradouroAction.do';
         $data = [
             'CEP'  => $cep,
@@ -116,7 +130,8 @@ class Correios {
             'StartRow'    => '1',
             'EndRow'      => '10'
         ];
+
         return $this->formatTabela($url, $data);
     }
 
-} 
+}
